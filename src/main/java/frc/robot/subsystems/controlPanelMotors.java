@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.ControlPanelConstants;
+import frc.robot.Constants.controlPanelConstants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -20,46 +20,46 @@ public class controlPanelMotors extends SubsystemBase {
   private WPI_TalonFX m_motor;
 
   public controlPanelMotors() {
-    m_motor = new WPI_TalonFX(ControlPanelConstants.kMotorPort);
+    m_motor = new WPI_TalonFX(controlPanelConstants.kMotorPort);
     WPI_TalonFX m_motor = new WPI_TalonFX(4);
    
     /* Factory Default all hardware to prevent unexpected behaviour */
     m_motor.configFactoryDefault();
 
     /* Config the sensor used for Primary PID and sensor direction */
-    m_motor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, ControlPanelConstants.kPIDLoopIdx,
-        ControlPanelConstants.kTimeoutMs);
+    m_motor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, controlPanelConstants.kPIDLoopIdx,
+        controlPanelConstants.kTimeoutMs);
 
     /* Ensure sensor is positive when output is positive */
-    m_motor.setSensorPhase(ControlPanelConstants.kSensorPhase);
+    m_motor.setSensorPhase(controlPanelConstants.kSensorPhase);
 
     /**
      * Set based on what direction you want forward/positive to be. This does not
      * affect sensor phase.
      */
-    m_motor.setInverted(ControlPanelConstants.kMotorInvert);
+    m_motor.setInverted(controlPanelConstants.kMotorInvert);
 
     /* Config the peak and nominal outputs, 12V means full */
-    m_motor.configNominalOutputForward(0, ControlPanelConstants.kTimeoutMs);
-    m_motor.configNominalOutputReverse(0, ControlPanelConstants.kTimeoutMs);
-    m_motor.configPeakOutputForward(.2, ControlPanelConstants.kTimeoutMs);
-    m_motor.configPeakOutputReverse(-.2, ControlPanelConstants.kTimeoutMs);
+    m_motor.configNominalOutputForward(0, controlPanelConstants.kTimeoutMs);
+    m_motor.configNominalOutputReverse(0, controlPanelConstants.kTimeoutMs);
+    m_motor.configPeakOutputForward(.2, controlPanelConstants.kTimeoutMs);
+    m_motor.configPeakOutputReverse(-.2, controlPanelConstants.kTimeoutMs);
 
     /**
      * Config the allowable closed-loop error, Closed-Loop output will be neutral
      * within this range. See Table in Section 17.2.1 for native units per rotation.
      */
-    m_motor.configAllowableClosedloopError(0, ControlPanelConstants.kPIDLoopIdx, ControlPanelConstants.kTimeoutMs);
+    m_motor.configAllowableClosedloopError(0, controlPanelConstants.kPIDLoopIdx, controlPanelConstants.kTimeoutMs);
 
     /* Config Position Closed Loop gains in slot0, tsypically kF stays zero. */
-    m_motor.config_kF(ControlPanelConstants.kPIDLoopIdx, ControlPanelConstants.kGains.kF,
-        ControlPanelConstants.kTimeoutMs);
-    m_motor.config_kP(ControlPanelConstants.kPIDLoopIdx, ControlPanelConstants.kGains.kP,
-        ControlPanelConstants.kTimeoutMs);
-    m_motor.config_kI(ControlPanelConstants.kPIDLoopIdx, ControlPanelConstants.kGains.kI,
-        ControlPanelConstants.kTimeoutMs);
-    m_motor.config_kD(ControlPanelConstants.kPIDLoopIdx, ControlPanelConstants.kGains.kD,
-        ControlPanelConstants.kTimeoutMs);
+    m_motor.config_kF(controlPanelConstants.kPIDLoopIdx, controlPanelConstants.kGains.kF,
+        controlPanelConstants.kTimeoutMs);
+    m_motor.config_kP(controlPanelConstants.kPIDLoopIdx, controlPanelConstants.kGains.kP,
+        controlPanelConstants.kTimeoutMs);
+    m_motor.config_kI(controlPanelConstants.kPIDLoopIdx, controlPanelConstants.kGains.kI,
+        controlPanelConstants.kTimeoutMs);
+    m_motor.config_kD(controlPanelConstants.kPIDLoopIdx, controlPanelConstants.kGains.kD,
+        controlPanelConstants.kTimeoutMs);
 
     /**
      * Grab the 360 degree position of the MagEncoder's absolute position, and
@@ -69,16 +69,16 @@ public class controlPanelMotors extends SubsystemBase {
 
     /* Mask out overflows, keep bottom 12 bits */
     absolutePosition &= 0xFFF;
-    if (ControlPanelConstants.kSensorPhase) {
+    if (controlPanelConstants.kSensorPhase) {
       absolutePosition *= -1;
     }
-    if (ControlPanelConstants.kMotorInvert) {
+    if (controlPanelConstants.kMotorInvert) {
       absolutePosition *= -1;
     }
 
     /* Set the quadrature (relative) sensor to match absolute */
-    m_motor.setSelectedSensorPosition(0, ControlPanelConstants.kPIDLoopIdx,
-        ControlPanelConstants.kTimeoutMs);
+    m_motor.setSelectedSensorPosition(0, controlPanelConstants.kPIDLoopIdx,
+        controlPanelConstants.kTimeoutMs);
   }
 
   public void setSpeed(double speed) {
