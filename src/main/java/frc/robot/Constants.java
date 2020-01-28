@@ -49,7 +49,7 @@ public static final class indexConstants {
     public static final int index1_2 = 9;
     public static final int indexLoad = 10;
 }
-public static final class ControlPanelConstants {
+public static final class controlPanelConstants {
     public static final int kMotorPort = 4;
     public static final int kSlotIdx = 0;
     public static final int kPIDLoopIdx = 0;
