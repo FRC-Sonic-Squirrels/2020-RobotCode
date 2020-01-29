@@ -13,13 +13,13 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
-public class controlPanelMotors extends SubsystemBase {
+public class controlPanelSubsystem extends SubsystemBase {
   /**
-   * Creates a new controlPanelMotors.
+   * Creates a new controlPanelSubsystem.
    */
   private WPI_TalonFX m_motor;
 
-  public controlPanelMotors() {
+  public controlPanelSubsystem() {
     m_motor = new WPI_TalonFX(controlPanelConstants.kMotorPort);
     WPI_TalonFX m_motor = new WPI_TalonFX(4);
    

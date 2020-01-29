@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 //import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.driveConstants;
 import frc.robot.commands.driveCommand;
 import frc.robot.commands.elevatorCommand;
 import frc.robot.commands.indexStage1;
@@ -26,7 +26,7 @@ import frc.robot.subsystems.driveSubsystem;
 import frc.robot.subsystems.elevatorSubsystem;
 import frc.robot.subsystems.turretSubsystem;
 import frc.robot.subsystems.shooterSubsystem;
-import frc.robot.subsystems.controlPanelMotors;
+import frc.robot.subsystems.controlPanelSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -44,12 +44,12 @@ public class RobotContainer {
   public static final shooterCommand m_shooterCommand = new shooterCommand(m_shooter);
   public static final elevatorSubsystem m_elevatorSubsystem = new elevatorSubsystem();
   public final elevatorCommand m_elevatorCommand = new elevatorCommand(m_elevatorSubsystem);
-  private final controlPanelMotors m_controlPanelMotors = new controlPanelMotors();
+  private final controlPanelSubsystem m_controlPanelSubsystem = new controlPanelSubsystem();
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
-  public static XboxController m_driveController = new XboxController(DriveConstants.k_driveController);
-  public static XboxController m_operatorController = new XboxController(DriveConstants.k_operatorController);
+  public static XboxController m_driveController = new XboxController(driveConstants.k_driveController);
+  public static XboxController m_operatorController = new XboxController(driveConstants.k_operatorController);
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
@@ -76,8 +76,8 @@ public class RobotContainer {
     //bbutton.whenReleased(command)
     //xbutton.whenPressed( () -> shooterCommand.index()).whenReleased(() -> IndexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 0));
     ybutton.toggleWhenPressed(new indexStage1());
-    ybutton.whenPressed(() -> m_controlPanelMotors.setPosition(0), m_controlPanelMotors);
-    xbutton.whenPressed(() -> m_controlPanelMotors.setPosition(1 * 4096), m_controlPanelMotors);
+    ybutton.whenPressed(() -> m_controlPanelSubsystem.setPosition(0), m_controlPanelSubsystem);
+    xbutton.whenPressed(() -> m_controlPanelSubsystem.setPosition(1 * 4096), m_controlPanelSubsystem);
 
   }
 

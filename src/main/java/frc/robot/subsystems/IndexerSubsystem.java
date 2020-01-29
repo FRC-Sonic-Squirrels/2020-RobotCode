@@ -12,15 +12,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.indexConstants;
 
-public class IndexerSubsystem extends SubsystemBase {
+public class indexerSubsystem extends SubsystemBase {
   /**
-   * Creates a new IndexerSubsystem.
+   * Creates a new indexerSubsystem.
    */
   public static WPI_TalonFX indexStage1_1 = new WPI_TalonFX(indexConstants.index1_1);
   public static WPI_TalonFX indexStage1_2 = new WPI_TalonFX(indexConstants.index1_2);
   public static WPI_TalonFX indexLoad = new WPI_TalonFX(indexConstants.indexLoad);
 
-  public IndexerSubsystem() {
+  public indexerSubsystem() {
 
 
   }

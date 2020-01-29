@@ -12,7 +12,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.subsystems.IndexerSubsystem;
+import frc.robot.subsystems.indexerSubsystem;
 import frc.robot.subsystems.shooterSubsystem;
 
 public class shooterCommand extends CommandBase {
@@ -52,14 +52,14 @@ public class shooterCommand extends CommandBase {
     //Use 1500 for testing purposes, as it is exactly half speed.
     //m_shooterSubsystem.setShooterRPM(1500);
     System.out.println("Starting Kicker Wheel");
-    //IndexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 1);
+    //indexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 1);
   }
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     System.out.println("Stopping Flywheel/Kicker Wheel");
     shooterSubsystem.shooter1.set(ControlMode.PercentOutput, 0);
-    IndexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 0);
+    indexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 0);
 
   }
 

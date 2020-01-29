@@ -13,17 +13,17 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.driveConstants;
 
 public class driveSubsystem extends SubsystemBase {
   /**
    * Creates a new ExampleSubsystem.
    */
   //When referencing this code, use WPI_TalonFX as TalonFX is not for FRC use and does not work with DifferentialDrive.
-   WPI_TalonFX falcon1 = new WPI_TalonFX(DriveConstants.FALCON_1);
-   WPI_TalonFX falcon2 = new WPI_TalonFX(DriveConstants.FALCON_2);
-   WPI_TalonFX falcon3 = new WPI_TalonFX(DriveConstants.FALCON_3);
-   WPI_TalonFX falcon4 = new WPI_TalonFX(DriveConstants.FALCON_4);
+   WPI_TalonFX falcon1 = new WPI_TalonFX(driveConstants.FALCON_1);
+   WPI_TalonFX falcon2 = new WPI_TalonFX(driveConstants.FALCON_2);
+   WPI_TalonFX falcon3 = new WPI_TalonFX(driveConstants.FALCON_3);
+   WPI_TalonFX falcon4 = new WPI_TalonFX(driveConstants.FALCON_4);
    public static SpeedController leftSide;
    public static SpeedController rightSide;
    DifferentialDrive drive;

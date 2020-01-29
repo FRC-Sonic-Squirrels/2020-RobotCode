@@ -10,7 +10,7 @@ package frc.robot.commands;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.IndexerSubsystem;
+import frc.robot.subsystems.indexerSubsystem;
 import frc.robot.subsystems.shooterSubsystem;
 
 public class shooterHalfCommand extends CommandBase {
@@ -35,14 +35,14 @@ public class shooterHalfCommand extends CommandBase {
   @Override
   public void execute() {
     m_shooterSubsystem.setShooterRPM(3190);
-    IndexerSubsystem.indexLoad.set(ControlMode.PercentOutput, .7);
+    indexerSubsystem.indexLoad.set(ControlMode.PercentOutput, .7);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     shooterSubsystem.shooter1.set(ControlMode.PercentOutput, 0);
-    IndexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 0);
+    indexerSubsystem.indexLoad.set(ControlMode.PercentOutput, 0);
     
   }
 

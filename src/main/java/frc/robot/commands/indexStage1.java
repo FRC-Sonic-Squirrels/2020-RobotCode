@@ -11,7 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.IndexerSubsystem;
+import frc.robot.subsystems.indexerSubsystem;
 
 public class indexStage1 extends CommandBase {
   /**
@@ -24,20 +24,20 @@ public class indexStage1 extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    IndexerSubsystem.indexStage1_2.follow(IndexerSubsystem.indexStage1_1);
-    IndexerSubsystem.indexStage1_1.setInverted(true);
+    indexerSubsystem.indexStage1_2.follow(indexerSubsystem.indexStage1_1);
+    indexerSubsystem.indexStage1_1.setInverted(true);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    IndexerSubsystem.indexStage1_1.set(ControlMode.PercentOutput, 0.75);
+    indexerSubsystem.indexStage1_1.set(ControlMode.PercentOutput, 0.75);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    IndexerSubsystem.indexStage1_1.set(ControlMode.PercentOutput, 0);
+    indexerSubsystem.indexStage1_1.set(ControlMode.PercentOutput, 0);
   }
 
   // Returns true when the command should end.
