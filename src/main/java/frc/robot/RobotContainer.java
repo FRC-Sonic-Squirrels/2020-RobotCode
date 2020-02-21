@@ -34,6 +34,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.driveConstants;
 import frc.robot.Constants.pwmConstants;
+import frc.robot.commands.blinkinLimelightCommand;
 import frc.robot.commands.driveCommand;
 import frc.robot.commands.indexerSingleIntakeCommand;
 import frc.robot.commands.indexerRestageCommand;
@@ -61,7 +62,9 @@ public class RobotContainer {
 
   // Subsystems
   // NOTE: blinkin needs to be first and public static to be accessed by other subcsystems
-  private final static blinkinSubsystem m_blinkin = new blinkinSubsystem(pwmConstants.blinkin);
+  //private final static blinkinSubsystem m_blinkin = new blinkinSubsystem(pwmConstants.blinkin);
+  private final blinkinSubsystem m_blinkin_1 = new blinkinSubsystem(pwmConstants.blinkin_0); 
+  private final blinkinSubsystem m_blinkin_2 = new blinkinSubsystem(pwmConstants.blinkin_1);
   // All other subsystems should be private
   private final driveSubsystem m_drive = new driveSubsystem();
   //public so that it can get the right instance.
@@ -69,7 +72,7 @@ public class RobotContainer {
 
   private final turretSubsystem m_turretSubsystem = new turretSubsystem();
   private final shooterSubsystem m_shooter = new shooterSubsystem();
-  private final indexerSubsystem m_indexer = new indexerSubsystem(m_blinkin);
+  private final indexerSubsystem m_indexer = new indexerSubsystem(m_blinkin_1);
   private final elevatorSubsystem m_elevatorSubsystem = new elevatorSubsystem();
   private final controlPanelSubsystem m_controlPanelMotors = new controlPanelSubsystem();
   private final intakeSubsystem m_intake = new intakeSubsystem();
@@ -84,7 +87,7 @@ public class RobotContainer {
   public static XboxController m_operatorController = new XboxController(driveConstants.operatorController);
   public RobotContainer() {
     configureButtonBindings();
-
+    m_blinkin_2.setDefaultCommand(new blinkinLimelightCommand(m_blinkin_2));
     // default command is arcade drive command
     // TODO: un-NERF the drive command.
     m_drive.setDefaultCommand(

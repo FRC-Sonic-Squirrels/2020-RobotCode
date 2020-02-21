@@ -126,7 +126,8 @@ public final class Constants {
         public static final int intakeSolenoid2 = 7;
     }
     public static final class pwmConstants {
-        public static final int blinkin = 0;
+        public static final int blinkin_0 = 0;
+        public static final int blinkin_1 = 1;
     }
     public static final class digitalIOConstants {
         // assign digital IO (DIO) ports 0-9
