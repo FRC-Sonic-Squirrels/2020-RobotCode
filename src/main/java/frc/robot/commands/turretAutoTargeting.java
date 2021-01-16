@@ -89,7 +89,7 @@ public class turretAutoTargeting extends CommandBase {
 
     SmartDashboard.putNumber("Angle2Target", m_targetAngleDegrees);
     SmartDashboard.putNumber("Dist2Target", dist_pose);
-    SmartDashboard.putNumber("LL_Dist2Target", m_limelight.getDist(h1, h2, a1));
+    SmartDashboard.putNumber("LL_Dist2Target", m_limelight.getDist(h1, h2, a1, false));
     SmartDashboard.putNumber("AngleError", m_errorDegrees);
     SmartDashboard.putNumber("LL_Angle", ll_angleDegrees);
   }

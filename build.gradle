@@ -61,7 +61,7 @@ dependencies {
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 
     testImplementation 'junit:junit:4.12'
-    compile(group: 'com.fearxzombie', name: 'limelight_library', version: '0.7')
+    compile(group: 'com.fearxzombie', name: 'limelight_library', version: '20.07')
     compile(group: 'com.team2930.lib.util', name: 'geometry', version: '2.0')
     // Enable simulation gui support. Must check the box in vscode to enable support
     // upon debugging

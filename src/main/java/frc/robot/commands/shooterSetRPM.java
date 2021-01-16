@@ -52,7 +52,7 @@ public class shooterSetRPM extends CommandBase {
       if (m_limelight.getTV() == 1) {
         // we have limelight target lock
         // TODO: these constants should be in Constants.java
-        targetDistance = m_limelight.getDist(0.6096, 2.5019, 32);
+        targetDistance = m_limelight.getDist(0.6096, 2.5019, 32, false);
 
         // TODO: our own fudge factor for distance, this shouldn't happen in limelight class
         //targetDistance = targetDistance / 1.1154856;
